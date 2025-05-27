@@ -52,7 +52,8 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 
 ### Use Case 5:
 
-- AWS Glue Crawler + Data Catalog for metadata management and schema evolution.
+- 5.1 AWS Glue Crawler + Data Catalog for metadata management and schema evolution.
+- 5.2 Cloud Watch Alerts for Crawler failure and sending sns notfication
 
 ### Use Case 6:
 
