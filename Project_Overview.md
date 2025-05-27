@@ -1,34 +1,47 @@
 %md
-#Project: Core Banking Data Modernization (LATAM Region)
+# Project: Core Banking Data Modernization (LATAM Region)
 Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform on AWS.
 
-##Legacy Core Banking Platform (On-Premises)
-Technologies:
+## Legacy System Architecture
+### Legacy Core Banking Platform (On-Premises)
+#### Technological Stack:
 Flexcube: Core banking product processor.
-
 Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
-
 Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
-
 Fuse: Messaging/notification service for customer alerts.
-
 Talend: Batch processing, upstream/downstream data exchange.
+Orachestration: Autosys
 
-#☁️ Data Modernization Platform – AWS Cloud (OLAP)
-🔄 Ingestion Layer
-Use Case 1:
+### New Core Banking Platform( Hybrid= OLTP on prem + OLAP on AWS)
+### Transaction Processing Plaform -on premises
+#### Technological Stack:
+Flexcube: Core banking product processor.
+Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
+Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
+Orechestration: Autosys
 
-Upstream systems push files to S3.
+# ☁️ Data Modernization Platform – AWS Cloud (OLAP)
+#### Technological Stack:
+Ingestion: AWS CLI itility push mechanism
+Storage: AWS S3 Data Lake 
+Data Anlytical processing: AWS Glue + Payspark + Snowflake
+Data Visualization: Tabbleau
+Orechestration: AWS Glue + Managed Airflow
 
-Unix server uses AWS CLI to upload files.
+## 🔄 Ingestion Layer
+### Use Case 1:
 
-Autosys File Watcher triggers scripts on flag file detection.
+- Upstream systems push files to S3.
 
-Use Case 2:
+- Unix server uses AWS CLI to upload files.
 
-Oracle GoldenGate used to replicate transactional data to S3.
+- Autosys File Watcher triggers scripts on flag file detection.
 
-Use Case 3:
+### Use Case 2:
+
+- Oracle GoldenGate used to replicate transactional data to S3.
+
+### Use Case 3:
 
 Business users upload reference data to secure S3 buckets.
 
