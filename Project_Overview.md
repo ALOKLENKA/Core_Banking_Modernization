@@ -43,75 +43,75 @@ Orechestration: AWS Glue + Managed Airflow
 
 ### Use Case 3:
 
-Business users upload reference data to secure S3 buckets.
+- Business users upload reference data to secure S3 buckets.
 
-🗄️ Storage Layer – S3 Data Lake
-Use Case 4:
+## 🗄️ Storage Layer – S3 Data Lake
+### Use Case 4:
 
-Raw data stored as a single source of truth.
+- Raw data stored as a single source of truth.
 
-Use Case 5:
+### Use Case 5:
 
-AWS Glue Crawler + Data Catalog for metadata management and schema evolution.
+- AWS Glue Crawler + Data Catalog for metadata management and schema evolution.
 
-Use Case 6:
+### Use Case 6:
 
-S3 Lifecycle Policies to optimize storage costs.
+- S3 Lifecycle Policies to optimize storage costs.
 
-Use Case 7:
+### Use Case 7:
 
-Versioning enabled to recover from accidental deletions.
+- Versioning enabled to recover from accidental deletions.
 
-Use Case 8:
+### Use Case 8:
 
-Encryption at rest for data security.
+- Encryption at rest for data security.
 
-Use Case 9:
+### Use Case 9:
 
-Data partitioned by transaction year/date for performance.
+- Data partitioned by transaction year/date for performance.
 
-Use Case 10:
+### Use Case 10:
 
-Athena used to query the data lake.
+- Athena used to query the data lake.
 
-🔧 Process & Analyze Layer – Snowflake
-Use Case 11 (Bronze Layer):
+## 🔧 Process & Analyze Layer – Snowflake
+### Use Case 11 (Bronze Layer):
 
-Raw data copied using COPY INTO and Zero Data Copy approach.
+- Raw data copied using COPY INTO and Zero Data Copy approach.
 
-Use Case 12 (Silver Layer):
+### Use Case 12 (Silver Layer):
 
-Data cleansing/validation using Glue + PySpark.
+- Data cleansing/validation using Glue + PySpark.
 
-Use Case 13 (Gold Layer):
+### Use Case 13 (Gold Layer):
 
-Dimensional modeling and business logic transformation using Glue + PySpark.
+- Dimensional modeling and business logic transformation using Glue + PySpark.
 
-Use Case 14:
+### Use Case 14:
 
-Reports generated in CSV/JSON format and written to S3.
+- Reports generated in CSV/JSON format and written to S3.
 
-Use Case 15:
+### Use Case 15:
 
-Reports pushed from S3 to downstream on-prem applications.
+- Reports pushed from S3 to downstream on-prem applications.
 
-📊 Explore & Visualize – Tableau
-Use Case 1:
+## 📊 Explore & Visualize – Tableau
+### Use Case 1:
 
-Live connection with Snowflake.
+- Live connection with Snowflake.
 
-Use Case 2:
+### Use Case 2:
 
-Support for live queries.
+- Support for live queries.
 
-Use Case 3:
+### Use Case 3:
 
-Import queries for snapshot reporting.
+- Import queries for snapshot reporting.
 
-Use Case 4:
+### Use Case 4:
 
-Scheduling of report refreshes.
+- Scheduling of report refreshes.
 
-Use Case 5:
+### Use Case 5:
 
-Sharing reports with business users/stakeholders.
+- Sharing reports with business users/stakeholders.
