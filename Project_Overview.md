@@ -5,28 +5,28 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 ## Legacy System Architecture
 ### Legacy Core Banking Platform (On-Premises)
 #### Technological Stack:
-Flexcube: Core banking product processor.
-Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
-Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
-Fuse: Messaging/notification service for customer alerts.
-Talend: Batch processing, upstream/downstream data exchange.
-Orachestration: Autosys
+- Flexcube: Core banking product processor.
+- Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
+- Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
+- Fuse: Messaging/notification service for customer alerts.
+- Talend: Batch processing, upstream/downstream data exchange.
+- Orachestration: Autosys
 
 ### New Core Banking Platform( Hybrid= OLTP on prem + OLAP on AWS)
 ### Transaction Processing Plaform -on premises
 #### Technological Stack:
-Flexcube: Core banking product processor.
-Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
-Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
-Orechestration: Autosys
+- Flexcube: Core banking product processor.
+- Oracle DB: Stores customer, accounts, and transaction data (credit/debit).
+- Kafka: Streams transactional data (fund transfers, deposits, withdrawals) to Flexcube and Oracle DB.
+- Orechestration: Autosys
 
 # ☁️ Data Modernization Platform – AWS Cloud (OLAP)
 #### Technological Stack:
-Ingestion: AWS CLI itility push mechanism
-Storage: AWS S3 Data Lake 
-Data Anlytical processing: AWS Glue + Payspark + Snowflake
-Data Visualization: Tabbleau
-Orechestration: AWS Glue + Managed Airflow
+- Ingestion: AWS CLI itility push mechanism
+- Storage: AWS S3 Data Lake 
+- Data Anlytical processing: AWS Glue + Payspark + Snowflake
+- Data Visualization: Tabbleau
+- Orechestration: AWS Glue + Managed Airflow
 
 ## 🔄 Ingestion Layer
 ### Use Case 1:
