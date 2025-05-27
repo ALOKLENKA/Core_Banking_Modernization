@@ -1,5 +1,5 @@
 %md
-# Project: Core Banking Data Modernization (LATAM Region)
+# Project: Core Banking Data Modernization 
 Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform on AWS.
 
 ## Legacy System Architecture
