@@ -58,7 +58,24 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 ### Use Case 6:
 
 - S3 Lifecycle Policies to optimize storage costs.
+- 6.1 Rule 1: For raw/ (Transactional Data)
+    - Transition to STANDARD_IA after 90 days
+    - Transition to GLACIER after 365 days
+    - Expire after 2555 days (7 years)
+      
+- 6.2 Rule 2: For processed/ (Cleansed Data)
+    - Transition to STANDARD_IA after 30 days
+    - Transition to GLACIER after 180 days
+    - Expire after 730 days (2 years)
 
+- 6.3 Rule3: For Business Data/Reports/Logs/Audit Trails
+    - Transition to STANDARD_IA after 30 days
+    - Transition to GLACIER after 180 days
+    - Expire after 730 days (2 years)
+
+
+
+Expire after 7 years
 ### Use Case 7:
 
 - Versioning enabled to recover from accidental deletions.
