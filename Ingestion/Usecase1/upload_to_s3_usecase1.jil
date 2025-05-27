@@ -1,0 +1,30 @@
+insert_job: BOX_UPLOAD_S3
+job_type: box
+owner: youruser@yourhost
+permission: gx,wx,mx
+date_conditions: 1
+days_of_week: all
+start_times: "00:00"
+description: "Box job to upload data to S3 when flag file detected"
+
+insert_job: FW_UPLOAD_TRIGGER
+job_type: f
+box_name: BOX_UPLOAD_S3
+machine: unix_server
+owner: youruser@yourhost
+watch_file: /data/landing/trigger_file.flag
+watch_interval: 60
+std_out_file: /logs/autosys/fw_trigger_stdout.log
+std_err_file: /logs/autosys/fw_trigger_stderr.log
+description: "Watches for zero-byte trigger file in landing zone"
+
+insert_job: CMD_UPLOAD_TO_S3
+job_type: c
+box_name: BOX_UPLOAD_S3
+command: /scripts/upload_to_s3.sh
+machine: unix_server
+owner: youruser@yourhost
+condition: success(FW_UPLOAD_TRIGGER)
+std_out_file: /logs/autosys/upload_stdout.log
+std_err_file: /logs/autosys/upload_stderr.log
+description: "Uploads data to S3 and removes flag file after completion"
