@@ -1,8 +1,8 @@
 %md
-#✅ Project: Core Banking Data Modernization (LATAM Region)
+#Project: Core Banking Data Modernization (LATAM Region)
 Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform on AWS.
 
-#🏦 Legacy Core Banking Platform (On-Premises)
+##Legacy Core Banking Platform (On-Premises)
 Technologies:
 Flexcube: Core banking product processor.
 
