@@ -31,11 +31,10 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 ## 🔄 Ingestion Layer
 ### Use Case 1:
 
-- Upstream systems push files to S3.
-
+- Upstream systems push files to on premises application unixserver.
 - Unix server uses AWS CLI to upload files.
-
 - Autosys File Watcher triggers scripts on flag file detection.
+- set up secure connection between on premisses unix server and s3 uisng secrets manager and IAM policy
 
 ### Use Case 2:
 
