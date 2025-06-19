@@ -1,0 +1,110 @@
+Oracle GoldenGate is a powerful, real-time Change Data Capture (CDC) and replication tool frequently used in banking and financial services projects—especially when integrating on-premises systems like Flexcube (OLTP on Oracle DB) with cloud-based data lakes like AWS S3.
+
+✅ Use Case Scenario
+Project Context: Core banking application using Oracle Flexcube on-premise with Oracle Database.
+Business wants to move transactional data (e.g., accounts, customers, payments) to AWS S3 for reporting, analytics, fraud detection, or ML workloads—in near real-time.
+
+🧱 Architecture Overview
+plaintext
+Copy
+Edit
+           +----------------------+
+           | Oracle Flexcube DB   |
+           | (On-Premise Oracle)  |
+           +----------+-----------+
+                      |
+          (Log-based CDC using GoldenGate)
+                      |
+           +----------v-----------+
+           | Oracle GoldenGate    |
+           | Extract + Trail Files|
+           +----------+-----------+
+                      |
+             (Secure replication via VPN/Direct Connect)
+                      |
+           +----------v-----------+
+           | GoldenGate Big Data  |
+           | Handler for S3/JSON  |
+           +----------+-----------+
+                      |
+              (Writes to S3 in Parquet/JSON)
+                      |
+           +----------v-----------+
+           |   AWS S3 Data Lake   |
+           +----------------------+
+🔄 Step-by-Step Data Flow
+1. Extract from Oracle (Flexcube)
+GoldenGate uses Extract process to read Redo Logs or Archived Logs from Oracle DB.
+
+It captures inserts, updates, deletes on target Flexcube tables (e.g., CUST_ACCOUNT, LOANS, PAYMENTS).
+
+2. Trail File Creation
+Captured changes are written to GoldenGate Trail Files, which store CDC data in a proprietary format.
+
+3. Replicate to AWS
+GoldenGate Replicat process reads Trail Files.
+
+If using GoldenGate for Big Data, the Replicat is configured to write directly to AWS S3 using a handler (e.g., JSON/Avro/Parquet format).
+
+Data is securely transferred via AWS Direct Connect or VPN.
+
+4. GoldenGate Big Data Adapter
+Uses S3 Handler to write CDC data as:
+
+JSON or Avro records (row-level)
+
+Optionally use partitioning based on timestamp/date (e.g., /year/month/day/)
+
+Can compress files as .gz or .snappy.
+
+5. AWS S3 Landing Zone
+All Flexcube CDC data lands in raw/bronze layer of the S3 data lake.
+
+From there, data can be processed using:
+
+AWS Glue (ETL)
+
+Athena/Redshift Spectrum (query)
+
+Amazon EMR / PySpark
+
+Lake Formation (for governance)
+
+🔐 Security & Governance
+Data encrypted at rest in S3 (SSE-S3 or SSE-KMS)
+
+In-transit encryption via TLS
+
+Fine-grained access control via IAM + Lake Formation
+
+🧪 Typical Use Cases
+Real-time reporting on accounts and transactions
+
+Fraud monitoring pipelines
+
+Customer 360 view using ML models
+
+Generating regulatory reports (Basel, AML, etc.)
+
+🧰 GoldenGate Configuration Notes
+Use Integrated Extract for Oracle 12c+ (reads from redo logs directly)
+
+Use Replicat in Big Data mode with S3 Handler
+
+Common configuration properties in ogg.properties for S3:
+
+properties
+Copy
+Edit
+gg.handler.s3.type=s3
+gg.handler.s3.fileFormat=json
+gg.handler.s3.bucketName=flexcube-cdc-data
+gg.handler.s3.partitionBy=transaction_date
+gg.handler.s3.compressionCodec=gzip
+✅ Benefits of Using GoldenGate in Banking Projects
+Benefit	Description
+Minimal impact	Log-based capture doesn't interfere with OLTP performance
+Real-time	Sub-second latency data sync
+Reliable	Fault-tolerant and resumable
+Scalable	Works with large volumes of transactions
+Secure	Can integrate with TLS, KMS, IAM
