@@ -26,7 +26,7 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 - Storage: AWS S3 Data Lake 
 - Data Anlytical processing: AWS Glue + Payspark + Snowflake
 - Data Visualization: Tabbleau
-- Orechestration: AWS Glue + Managed Airflow
+- Orechestration: AWS Managed Airflow
 
 ## 🔄 Ingestion Layer
 ### Use Case 1:
@@ -34,11 +34,10 @@ Scope: Modernizing legacy OLTP/OLAP systems to a cloud-based analytics platform 
 - Upstream systems push files to on premises application unixserver.
 - Unix server uses AWS CLI to upload files.
 - Autosys File Watcher triggers scripts on flag file detection.
-- set up secure connection between on premisses unix server and s3 uisng secrets manager and IAM policy
-
+- set up secure connection between on premisses unix server and AWS s3 uisng Site to Site VPN
 ### Use Case 2:
 
-- Oracle GoldenGate used to replicate transactional data to S3.
+- Oracle GoldenGate used to replicate transactional data to S3 using CDC
 
 ### Use Case 3:
 
